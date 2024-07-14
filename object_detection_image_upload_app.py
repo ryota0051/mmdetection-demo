@@ -37,8 +37,7 @@ choice = st.selectbox('モデルを選択してください', ['convnext', 'swin
 model, visualizer = load_model(choice)
 
 
-st.title("My first Streamlit app")
-st.write("Hello, world")
+st.title("Object Finder")
 
 
 file_path = st.file_uploader('', type=['png', 'jpg', 'jpeg'])
