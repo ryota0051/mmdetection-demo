@@ -25,14 +25,16 @@ SETTING_DICT = {
 
 
 @st.cache_resource
-def load_model():
-    model = init_detector(SETTING_DICT[MODEL_NAME]['config'], SETTING_DICT[MODEL_NAME]['weights'], device=DEVICE)
+def load_model(model_name):
+    model = init_detector(SETTING_DICT[model_name]['config'], SETTING_DICT[model_name]['weights'], device=DEVICE)
     visualizer = VISUALIZERS.build(model.cfg.visualizer)
     visualizer.dataset_meta = model.dataset_meta
     return model, visualizer
 
+choice = st.selectbox('モデルを選択してください', ['convnext', 'swin'], index=0)
 
-model, visualizer = load_model()
+
+model, visualizer = load_model(choice)
 
 
 st.title("My first Streamlit app")
