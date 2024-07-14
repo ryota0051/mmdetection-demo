@@ -58,4 +58,10 @@ if file_path:
     )
     pred_img = visualizer.get_image()
     pred_img = mmcv.imconvert(pred_img, 'bgr', 'rgb')
-    st.image(pred_img, channels='RGB')
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write('Base')
+        st.image(img, channels='RGB')
+    with col2:
+        st.write('Detection result')
+        st.image(pred_img, channels='RGB')
