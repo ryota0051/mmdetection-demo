@@ -57,7 +57,6 @@ if file_path:
         show=False
     )
     pred_img = visualizer.get_image()
-    pred_img = mmcv.imconvert(pred_img, 'bgr', 'rgb')
     col1, col2 = st.columns(2)
     with col1:
         st.write('Base')

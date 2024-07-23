@@ -44,7 +44,7 @@ choice = st.selectbox('モデルを選択してください', ['convnext', 'swin
 
 def od_callback(frame):
     model, visualizer = load_model(choice)
-    img = frame.to_ndarray(format="bgr24")
+    img = frame.to_ndarray(format='bgr24')
 
     result = inference_detector(model, img)
 
@@ -58,9 +58,8 @@ def od_callback(frame):
         show=False
     )
     pred_img = visualizer.get_image()
-    pred_img = mmcv.imconvert(pred_img, 'bgr', 'rgb')
 
-    return av.VideoFrame.from_ndarray(pred_img, format="bgr24")
+    return av.VideoFrame.from_ndarray(pred_img, format='rgb24')
 
 
 webrtc_streamer(key='object_detection', video_frame_callback=od_callback)
